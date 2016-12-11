@@ -8,6 +8,7 @@ var StatsComponent = React.createClass({
                 </div>
                 <div className="panel-body">
                   <p>Month: November</p>
+                  <p>Sum: ${this.props.totalAmount}</p>
                   <p>Food: $190.55</p>
                   <p>Transport: $61.30</p>
                   <p>Alcohol: $35.89</p>

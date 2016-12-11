@@ -4,7 +4,7 @@ var HomeComponent = React.createClass({
         return (
         <div>
                 
-            <StatsComponent />
+            <StatsContainer />
                 
         </div>
         )

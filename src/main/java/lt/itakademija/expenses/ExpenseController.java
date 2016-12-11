@@ -31,4 +31,9 @@ public class ExpenseController {
 		service.deleteExpense(id);
 	}
 	
+	@GetMapping("/sum")
+	public double getTotalSum() {
+		return service.getTotalSum();
+	}
+	
 }

@@ -18,10 +18,17 @@ var ExpenseListContainer = React.createClass({
         })
     },
 
+    handleRemoveItem: function(e) {
+        var self = this;
+        axios.delete('/api/'+ e.id).then(function () {
+            console.log('item deleted');
+
+          });
+    },
     
       
     render: function() {
-        return <ExpenseListComponent expenses={this.state.expenses} />
+        return <ExpenseListComponent expenses={this.state.expenses} onRemoveItem={this.handleRemoveItem}/>
   }
 });
 
