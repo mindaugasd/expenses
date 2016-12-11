@@ -18,8 +18,6 @@ var NoMatch = React.createClass({
   }
 });
 
-
-
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
