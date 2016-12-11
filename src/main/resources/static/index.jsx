@@ -4,7 +4,7 @@ var App = React.createClass({
   render: function() {
     return (
       <div style={{ paddingTop: '20px' }}>
-        <NavigationComponent />
+        <NavigationContainer />
             
         {this.props.children}
       </div>
@@ -31,7 +31,6 @@ ReactDOM.render((
         <Route path="/home" component={HomeComponent} />
         <Route path="/expenses" component={ExpenseListContainer} />
         <Route path="/add" component={AddContainer} />
-        <Route path="/logout" component={HomeComponent} />
       <Route path="*" component={NoMatch}/>
     </Route>
   </Router>
