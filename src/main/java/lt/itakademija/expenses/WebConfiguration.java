@@ -14,10 +14,6 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 @Configuration
 public class WebConfiguration extends WebMvcConfigurerAdapter {
 
-	  /**
-	   * Make sure dates are serialised in
-	   * ISO-8601 format instead as timestamps
-	   */
 	  @Override
 	  public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
 		  for (HttpMessageConverter<?> converter : converters) {

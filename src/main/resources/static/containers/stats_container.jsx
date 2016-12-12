@@ -1,10 +1,8 @@
 var StatsContainer = React.createClass({
 
-    
     getInitialState: function() {
         return {
-          sum: 0 
-          
+          sum: 0
         };
     },
 
@@ -14,12 +12,8 @@ var StatsContainer = React.createClass({
         .then(function (response) {
             self.setState({ sum: response.data });
         })
-        .catch(function (error) {
-          console.log(error);
-        })
     },
-    
-    
+
     render: function() {
         return <StatsComponent totalAmount={this.state.sum}/>
   }

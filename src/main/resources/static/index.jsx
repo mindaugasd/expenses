@@ -1,11 +1,8 @@
-console.log('test');
-
 var App = React.createClass({
   render: function() {
     return (
       <div style={{ paddingTop: '20px' }}>
         <NavigationContainer />
-            
         {this.props.children}
       </div>
     );
@@ -26,6 +23,7 @@ var hashHistory = ReactRouter.hashHistory;
 ReactDOM.render((
   <Router history={hashHistory}>
     <Route path="/" component={App}>
+        <IndexRoute component={HomeComponent} />
         <Route path="/home" component={HomeComponent} />
         <Route path="/expenses" component={ExpenseListContainer} />
         <Route path="/add" component={AddContainer} />

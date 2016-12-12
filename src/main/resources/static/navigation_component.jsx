@@ -1,5 +1,3 @@
-console.log( 'testNav' );
-
 var Link = window.ReactRouter.Link;
 
 var NavLink = function( props, context ) {
@@ -18,11 +16,11 @@ var NavLink = function( props, context ) {
 NavLink.contextTypes = {
     router: React.PropTypes.object,
 };
+
 NavLink.propTypes = {
     children: React.PropTypes.node.isRequired,
     to: React.PropTypes.string.isRequired,
 };
-
 
 var NavigationComponent = React.createClass( {
     render: function() {
@@ -34,13 +32,8 @@ var NavigationComponent = React.createClass( {
                         <NavLink to="/expenses">Expenses</NavLink>
                         <NavLink to="/add">Add</NavLink>
                     </ul>
-
                     <ul className="nav navbar-nav navbar-right">
-
-
                         <button type="button" className="btn btn-default" onClick={this.props.onLogoutClick}>Sign Out</button>
-
-
                     </ul>
                 </div>
             </nav>

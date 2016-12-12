@@ -2,11 +2,9 @@ var NavigationContainer = React.createClass({
     
     handleLogout: function(e) {
         axios.get('/logout').then(function () {
-            console.log('logged out');
+            window.location.reload()
           });
-        return function() {
-            this.props.history.push('/');
-        }
+
     },
       
     render: function() {
@@ -16,11 +14,6 @@ var NavigationContainer = React.createClass({
                 />
         );
     }
-    
-    
-    
-    
-    
 });
 
 window.NavigationContainer = NavigationContainer;

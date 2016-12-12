@@ -45,7 +45,6 @@ var AddComponent = React.createClass( {
     }
 });
 
-
 AddComponent.propTypes = {
     expense: React.PropTypes.object.isRequired,
     onFieldChange: React.PropTypes.func.isRequired,

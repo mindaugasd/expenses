@@ -1,9 +1,7 @@
 var ExpenseListComponent = React.createClass({
     render: function() {
       var self = this;
-
       var expenseList = this.props.expenses.map( function( expense, index ) {
-          
           var d = new Date(expense.expenseDate);
           var year = d.getFullYear();
           var month = d.getMonth() + 1;
@@ -17,7 +15,6 @@ var ExpenseListComponent = React.createClass({
           var fullDate = year + '-' + month + '-' + date;    
       
         return (
-            
             <tr key={index}>
             <td>{fullDate}</td>
             <td>{expense.title}</td>
@@ -32,7 +29,6 @@ var ExpenseListComponent = React.createClass({
             <button type="button" className="btn btn-default" onClick={self.props.onRemoveItem(expense)}>
             <span className="glyphicon glyphicon-remove"></span>
             </button></td>
-            
             </tr>
         );
       });
@@ -56,8 +52,7 @@ var ExpenseListComponent = React.createClass({
                   </thead>
                   <tbody>
                   {expenseList}
-              
-                     </tbody>
+                  </tbody>
               </table>
             </div>
               )

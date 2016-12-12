@@ -1,31 +1,35 @@
-console.log('testlistconainer');
 var ExpenseListContainer = React.createClass({
     getInitialState: function() {
         return {
           expenses: [] 
-          
         };
     },
 
     componentWillMount: function() {
         var self = this;
-        axios.get('http://localhost:8080/api')
+        axios.get('/api')
         .then(function (response) {
-            self.setState({ expenses: response.data });
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
+            self.setState({ 
+                expenses: response.data 
+            });
+        });
+
     },
 
-    
-    handleRemoveItem: function(e) {
-        return function() {
-          axios.delete('/api/'+ e.id).then(function() {
-              console.log('item deleted');
-          });
-        };
-      },
+    handleRemoveItem: function(expense) {
+          var self = this;
+          return function() {
+            axios.delete('/api/'+ expense.id).then(function(response) {
+                console.log('item deleted');
+                axios.get('/api')
+                .then(function (response) {
+                    self.setState({ 
+                        expenses: response.data 
+                    });
+                });
+            });
+          };
+        },
       
     render: function() {
         return <ExpenseListComponent expenses={this.state.expenses} onRemoveItem={this.handleRemoveItem}/>

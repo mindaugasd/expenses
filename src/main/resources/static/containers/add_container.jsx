@@ -1,8 +1,4 @@
-console.log( 'add_container' );
-
-var AddContainer = React.createClass( {
-    getInitialState: function() {
-        var d = new Date();
+var d = new Date();
         var year = d.getFullYear();
         var month = d.getMonth() + 1;
         var date = d.getDate();
@@ -13,6 +9,10 @@ var AddContainer = React.createClass( {
             date = '0' + date;
         }
         var fullDate = year + '-' + month + '-' + date;
+
+
+var AddContainer = React.createClass( {
+    getInitialState: function() {
         return {
             expense: {
                 expenseDate: fullDate,
@@ -29,10 +29,21 @@ var AddContainer = React.createClass( {
     
     handleSaveClick: function(e) {
         e.preventDefault();
-        var productId = this.props.params.id;
         var self = this;
         axios.post('/api', this.state.expense).then(function () {
             console.log('item added');
+            self.setState({
+                   expense: {
+                       expenseDate: fullDate,
+                       title: '',
+                       price: '0.00',
+                       payer: '',
+                       belongs: '',
+                       company: '',
+                       product: '',
+                       comment: ''
+                   }
+            });
           });
       },
     
@@ -43,7 +54,7 @@ var AddContainer = React.createClass( {
           expense[fieldName] = e.target.value;
           self.setState({ expense: expense });
         };
-      },
+    },
       
     render: function() {
         return (
@@ -56,7 +67,5 @@ var AddContainer = React.createClass( {
     }
 
 });
-
-
 
 window.AddContainer = AddContainer;

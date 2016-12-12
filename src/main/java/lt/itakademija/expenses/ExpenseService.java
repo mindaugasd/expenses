@@ -13,17 +13,17 @@ public class ExpenseService {
 
 	@Autowired
 	private ExpenseRepository repository;
-	
+
 	public List<Expense> getExpenses() {
 		return repository.getExpenses();
-		
+
 	}
-	
+
 	@Transactional
 	public Expense addExpense(Expense expense) {
 		return repository.addExpense(expense);
 	}
-	
+
 	@Transactional
 	public void deleteExpense(Long id) {
 		repository.deleteExpense(id);
@@ -37,5 +37,5 @@ public class ExpenseService {
 		}
 		return sum;
 	}
-	
+
 }

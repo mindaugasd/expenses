@@ -10,26 +10,16 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-        .csrf().disable() // CSRF DISABLED
-            .authorizeRequests()
-                .anyRequest().authenticated()
-                .antMatchers("/api").permitAll()
-                .and()
-            .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .and()
-            .logout()
-                .permitAll();
-    }
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-            .inMemoryAuthentication()
-                .withUser("user").password("pass").roles("USER");
-    }
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.csrf().disable() // CSRF DISABLED
+				.authorizeRequests().anyRequest().authenticated().antMatchers("/api").permitAll().and().formLogin()
+				.loginPage("/login").permitAll().and().logout().permitAll();
+	}
+
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+		auth.inMemoryAuthentication().withUser("user").password("ass").roles("USER");
+	}
 }
